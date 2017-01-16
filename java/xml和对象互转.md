@@ -194,11 +194,13 @@
         public static void main(String[] args) throws JAXBException {
             String xmlStr="<xml><return_code><![CDATA[SUCCESS]]></return_code> <return_msg><![CDATA[OK]]></return_msg> <appid><![CDATA[wx541feb86de2d4f76]]></appid> <mch_id><![CDATA[1431668402]]></mch_id> <nonce_str><![CDATA[j09UhL1NjGTsGfXJ]]></nonce_str> <sign><![CDATA[6CFB69E9FEAA7E9DD784201461242C64]]></sign> <result_code><![CDATA[SUCCESS]]></result_code> <prepay_id><![CDATA[wx201701161111017d271b0cc50251279917]]></prepay_id> <trade_type><![CDATA[NATIVE]]></trade_type> <code_url><![CDATA[weixin://wxpay/bizpayurl?pr=ucKXnpr]]></code_url> </xml>";
             JAXBContext context = JAXBContext.newInstance(UnifiedOrderResponse.class);  
-            Unmarshaller unmarshaller = context.createUnmarshaller();
+            
             //xml字符串转对象
+            Unmarshaller unmarshaller = context.createUnmarshaller();
             UnifiedOrderResponse bean = (UnifiedOrderResponse)unmarshaller.unmarshal(new StringReader(xmlStr));  
             System.out.println(bean.appid);
             
+            //对象转xml字符串转
             Marshaller marshaller = context.createMarshaller();  
             OutputStream os=new ByteArrayOutputStream();
             marshaller.marshal(bean, os);  
