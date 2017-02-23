@@ -79,6 +79,7 @@
         */
         private String code_url;
         
+        @XmlElement(name = "return_code")
         public String getReturn_code() {
             return return_code;
         }
