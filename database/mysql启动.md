@@ -1,3 +1,8 @@
+
+     mysqld --defaults-file=/etc/my.cnf --user=root
+
+
+
 1。直接用mysqld手工启动
 
     [root@ora11g bin]# ./mysqld --defaults-file=../my.cnf 
